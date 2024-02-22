@@ -1,9 +1,24 @@
 
 import { fetchTasks } from "@/services/getTask";
 import type { Task } from "@/types/Task";
-const tasks: Task[] = await fetchTasks();
+import useTaskStore from "@/store/useTaskStore";
+import React, { useEffect } from "react";
+
+
 
 export default function Card() {
+
+  const {tasks, setTasks} = useTaskStore((state) => state);
+  //const setTasks = useTaskStore((state) => state.setTasks);
+
+
+  useEffect(() => {
+
+    fetchTasks()
+    .then((tasks) => {
+      setTasks(tasks);
+    });
+  }, []);
 
 return (
 <section className="flex flex-col gap-4">
