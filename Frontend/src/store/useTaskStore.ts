@@ -3,6 +3,8 @@ import type { Task } from '@/types/Task';
 
 type TaskState = {
     tasks: Task[];
+    task: Task;
+    setTask: (task: Task) => void;
     addTask: (task: Task) => void;
     updateTask: (task: Task) => void;
     setTasks: (tasks: Task[]) => void;
@@ -11,6 +13,8 @@ type TaskState = {
 
 const useTaskStore = create<TaskState>((set) => ({
     tasks: [],
+    task: null,
+    setTask: (task) => set({ task }),
     addTask: (task) => set((state) => ({ tasks: [...state.tasks, task] })),
     updateTask: (task) =>
         set((state) => ({

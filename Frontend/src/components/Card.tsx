@@ -1,16 +1,29 @@
 
 import { fetchTasks } from "@/services/getTask";
-import type { Task } from "@/types/Task";
+import deleteTaskFecth  from "@/services/deleteTask";
 import useTaskStore from "@/store/useTaskStore";
 import React, { useEffect } from "react";
-
-
+import { toast } from 'react-toastify';
+import type { Task } from "@/types/Task";
 
 export default function Card() {
 
-  const {tasks, setTasks} = useTaskStore((state) => state);
+  const {tasks, setTasks, removeTask, task, setTask} = useTaskStore((state) => state);
   //const setTasks = useTaskStore((state) => state.setTasks);
+  async function deleteTask(id: string) {
+    const taskDeleted = await toast.promise(deleteTaskFecth(id), {
+      pending: 'Deleting task...',
+      success: 'Task deleted',
+      error: 'Error deleting task'
+    });
+    if (!taskDeleted) return console.log("Error deleting task");
+    removeTask(taskDeleted._id);
+    console.log('Task deleted');
+  }
 
+  async function updateTask(task: Task) {
+    setTask(task);
+  }
 
   useEffect(() => {
 
@@ -30,6 +43,20 @@ return (
             <h2>{task.title}</h2>
             <p>{task.description}</p>
           </a>
+
+          <button onClick={()=>{
+            deleteTask(task._id);
+          }}>
+            delete
+          </button>
+          <button onClick={
+            ()=>{
+              updateTask(task);
+            }
+          
+          }>
+            edit
+          </button>
         </div>
       </article>
     ))

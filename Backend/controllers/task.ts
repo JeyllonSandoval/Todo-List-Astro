@@ -34,15 +34,16 @@ export const updateTask = (req: Request, res: Response) => {
     });
 };
 
-export const deleteTask = (req: Request, res: Response) => {
-    taskSchema.findByIdAndDelete(req.params.id).then(() => {
-        res.json({msg: 'Task deleted!'});
-    });
+export const deleteTask =async  (req: Request, res: Response) => {
+
+    const task = await taskSchema.findByIdAndDelete(req.params.id);
+    // setTimeout(() => {
+    //     res.json(task);
+    // }
+    // , 3000);
+    res.json(task);
 };
 
-export const deleteTasks = (req: Request, res: Response) => {
-    taskSchema.deleteMany().then(() => {
-        res.json({msg: 'Tasks deleted!'});
-    });
-};
+
+
 
