@@ -1,7 +1,5 @@
 import { createTask } from "@/services/createTask";
-
 import useTaskStore from "@/store/useTaskStore";
-import React, { useState } from "react";
 import type { Task } from "@/types/Task";
 import { toast } from 'react-toastify';
 
@@ -47,7 +45,7 @@ export default function Form() {
                 />
                 <textarea
                     placeholder="Description"
-                    className="placeholder-white text-slate-100 bg-slate-600 h-36 py-1 px-2 rounded-lg w-1/2 max-sm:w-72"
+                    className="resize-none placeholder-white text-slate-100 bg-slate-600 h-36 py-1 px-2 rounded-lg w-1/2 max-sm:w-72"
                     name="description"
                     defaultValue={task?.description || ""}
                 ></textarea>
