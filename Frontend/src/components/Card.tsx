@@ -3,7 +3,7 @@ import { fetchTasks } from "@/services/getTask";
 import deleteTaskFecth  from "@/services/deleteTask";
 import useTaskStore from "@/store/useTaskStore";
 import React, { useEffect } from "react";
-import { toast } from 'react-toastify';
+import { cssTransition, toast } from 'react-toastify';
 import type { Task } from "@/types/Task";
 
 export default function Card() {
@@ -13,7 +13,7 @@ export default function Card() {
   async function deleteTask(id: string) {
     const taskDeleted = await toast.promise(deleteTaskFecth(id), {
       pending: 'Deleting task...',
-      success: 'Task deleted',
+      success: 'Task completed!',
       error: 'Error deleting task'
     });
     if (!taskDeleted) return console.log("Error deleting task");
@@ -38,50 +38,24 @@ return (
   {
     tasks.map((task) => (
       <article className="flex justify-center items-start">
-        <div  className="px-2 list-none bg-slate-900 rounded-lg text-white py-1 border-2 border-slate-500 w-1/2 max-sm:w-72">
-          <a href={`/${task._id}`}>
-            <h2>{task.title}</h2>
-            <p>{task.description}</p>
-          </a>
-
-          <button onClick={()=>{
-            deleteTask(task._id);
-          }}>
-            delete
-          </button>
-          <button onClick={
-            ()=>{
-              updateTask(task);
-            }
-          
-          }>
-            edit
-          </button>
+        <div className="flex justify-between p-2 list-none bg-slate-900 rounded-lg text-white border-2 border-slate-500 w-1/2 max-sm:w-72">
+          <div className="flex flex-col">
+            <h2 className="text-xl">{task.title}</h2>
+            <p className="text-xl text-slate-400">{task.description}</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <button onClick={()=>{deleteTask(task._id)}}
+            className="rounded-lg bg-green-700 p-1">
+              Complete
+            </button>
+            <button onClick={()=>{updateTask(task)}}
+              className="rounded-lg bg-blue-700 p-1">
+              edit
+            </button>
+          </div>
         </div>
       </article>
     ))
   }
 </section>
 )}
-
-// import React from 'react';
-// import useAddTask from '@/store/addTask';
-
-// const Card: React.FC = () => {
-//   const tasks = useAddTask((state) => state.tasks);
-
-//   return (
-//     <section className="flex flex-col gap-4">
-//       {tasks.map((task, index) => (
-//         <article key={index} className="flex justify-center items-start">
-//           <div className="px-2 list-none bg-slate-900 rounded-lg text-white py-1 border-2 border-slate-500 w-1/2 max-sm:w-72">
-//             <h2>{task.title}</h2>
-//             <p>{task.description}</p>
-//           </div>
-//         </article>
-//       ))}
-//     </section>
-//   );
-// };
-
-// export default Card;

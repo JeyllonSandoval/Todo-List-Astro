@@ -55,7 +55,7 @@ export default function Form() {
                     type="submit"
                     className="hover:bg-white hover:text-black hover:border-sky-700 bg-slate-800 rounded-lg text-white py-1 border-2 border-slate-400 w-1/3"
                 >
-                    {task ? "Edit" : "Add"}
+                    {task ? "Completed Edit" : "Add"}
                 </button>
             </form>
         </section>
