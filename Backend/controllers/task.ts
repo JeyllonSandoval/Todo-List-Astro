@@ -34,7 +34,7 @@ export const updateTask = (req: Request, res: Response) => {
     });
 };
 
-export const deleteTask =async  (req: Request, res: Response) => {
+export const deleteTask = async (req: Request, res: Response) => {
 
     const task = await taskSchema.findByIdAndDelete(req.params.id);
     // setTimeout(() => {
@@ -42,6 +42,12 @@ export const deleteTask =async  (req: Request, res: Response) => {
     // }
     // , 3000);
     res.json(task);
+};
+
+export const deleteTasks = (req: Request, res: Response) => {
+    taskSchema.deleteMany().then(() => {
+        res.json({msg: 'All tasks deleted!'});
+    });
 };
 
 
