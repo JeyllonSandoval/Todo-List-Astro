@@ -1,6 +1,6 @@
 
-import { fetchTasks } from "@/services/getTask";
-import deleteTaskFecth  from "@/services/deleteTask";
+import { fetchTasks } from "@/services/servicesTask";
+import deleteTaskFecth  from "@/services/servicesTask";
 import useTaskStore from "@/store/useTaskStore";
 import React, { useEffect } from "react";
 import { cssTransition, toast } from 'react-toastify';
