@@ -38,3 +38,31 @@ async function deleteTaskFecth(id: string) {
   }
 
 export default deleteTaskFecth;
+
+export const updateTask = async (task: Task) => {
+    const response = await fetch(API_URL + `/${task._id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task)
+    });
+
+    if (!response.ok) {
+        throw new Error("Error al actualizar la tarea");
+    }
+
+    return response.json();
+};
+
+export const removeAllTasksFetch = async () => {
+    const response = await fetch(API_URL, {
+        method: "DELETE",
+    });
+
+    if (!response.ok) {
+        throw new Error("Error al borrar las tareas");
+    }
+
+    return response.json();
+};

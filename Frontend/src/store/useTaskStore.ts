@@ -9,6 +9,7 @@ type TaskState = {
     updateTask: (task: Task) => void;
     setTasks: (tasks: Task[]) => void;
     removeTask: (id: string) => void;
+    removeAllTasks: () => void;
 };
 
 const useTaskStore = create<TaskState>((set) => ({
@@ -25,6 +26,7 @@ const useTaskStore = create<TaskState>((set) => ({
         set((state) => ({
             tasks: state.tasks.filter((task) => task._id !== id),
         })),
+    removeAllTasks: () => set({ tasks: [] }),
 }));
 
 export default useTaskStore;
