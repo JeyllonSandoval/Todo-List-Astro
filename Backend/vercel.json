@@ -1,7 +1,7 @@
 {
     "version": 2,
     "builds": [
-        { "src": "./index.js", "use": "@vercel/node" }
+        { "src": "./index.ts", "use": "@vercel/node" }
     ],
     "routes": [
         { 
@@ -10,5 +10,5 @@
         }
     ],
     "installCommand": "curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install --frozen-lockfile",
-    "buildCommand": "~/.bun/bin/bun run build"
+    "buildCommand": "~/.bun/bin/bun run build"
 }
