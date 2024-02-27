@@ -1,7 +1,7 @@
 import express from 'express';
-import {connectDB} from './db.ts';
-import taskRouter from './routes/task.routes.ts';
-import { favicon } from './middlewares/favicon.ts';
+import {connectDB} from './db.js';
+import taskRouter from './routes/task.routes.js';
+import { favicon } from './middlewares/favicon.js';
 import cors from 'cors';
 
 const app = express();

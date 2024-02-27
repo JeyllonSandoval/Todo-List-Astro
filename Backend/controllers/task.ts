@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import taskSchema from '../models/Task.ts';
+import taskSchema from '../models/Task.js';
 
 export const createTask = async(req: Request, res: Response) => {
     console.log(req.body);

@@ -1,4 +1,4 @@
-import type { Resquest, Response, NextFunction } from 'express';
+import type { Response, NextFunction } from 'express';
 
 export const auth = (req: any, res: Response, next: NextFunction) => {
     const token = req.header('x-token');
