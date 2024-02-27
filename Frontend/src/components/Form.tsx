@@ -61,17 +61,17 @@ export default function Form() {
                     name="description"
                     defaultValue={task?.description || ""}
                 ></textarea>
-                <div className="flex w-screen justify-center items-center gap-2">
+                <div className="flex w-2/3 justify-center items-center gap-2">
                     <button
                         onClick={deleteAllTasks}
                         type="reset"
-                        className="hover:bg-red-700 hover:text-white hover:border-white bg-red-900 rounded-lg text-white py-1 border-2 border-slate-400 w-60"
+                        className="hover:bg-red-700 hover:text-white hover:border-white bg-red-900 rounded-lg text-white py-1 border-2 border-slate-400 w-1/3 min-w-24"
                     >
                         Reset
                     </button>
                     <button
                         type="submit"
-                        className="hover:bg-green-700 hover:text-white hover:border-white bg-green-800 rounded-lg text-white py-1 border-2 border-slate-400 w-1/3"
+                        className="hover:bg-green-700 hover:text-white hover:border-white bg-green-800 rounded-lg text-white py-1 border-2 border-slate-400 w-1/3 min-w-40"
                     >
                         {task ? "Completed Edit" : "Add"}
                     </button>

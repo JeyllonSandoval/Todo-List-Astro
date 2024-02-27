@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:8322"
+export const API_URL = import.meta.env.PUBLIC_API_URL_VERCEL;
