@@ -33,7 +33,7 @@ export default function Card() {
   }, []);
 
 return (
-<section className="flex flex-col gap-4">
+<section className="flex flex-col gap-3 my-4">
   {
     tasks.map((task) => (
       <article className="flex justify-center items-start">
