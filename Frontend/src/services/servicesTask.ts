@@ -14,7 +14,7 @@ export async function fetchTasks(): Promise<Task[]> {
 
 
 export const createTask = async (title: string, description: string) => {
-    const response = await fetch(API_URL + '/create', {
+    const response = await fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
