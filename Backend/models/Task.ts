@@ -12,7 +12,7 @@ const taskSchema = new Schema({
         trim: true
     },
     done: {
-        type: Boolean,
+        type: String,
         default: false
     }
 }, {
