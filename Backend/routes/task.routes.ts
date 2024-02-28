@@ -3,7 +3,7 @@ import {createTask, getTask, getTasks, updateTask, deleteTask, deleteTasks} from
 
 const taskRouter = Router();
 
-taskRouter.post('/', createTask);
+taskRouter.post('/create', createTask);
 taskRouter.get('/:id', getTask);
 taskRouter.get('/', getTasks);
 taskRouter.put('/:id', updateTask);

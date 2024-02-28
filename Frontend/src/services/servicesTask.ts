@@ -1,20 +1,17 @@
 import { API_URL } from '@/services/API';
 import type { Task } from '@/types/Task';
 
-export async function fetchTasks(): Promise<Task[]> {
-  const res = await fetch(API_URL, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data: Task[] = await res.json();
-  return data;
-}
+export const fetchTasks = async () => {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+        throw new Error("Error al obtener las tareas");
+    }
+    return response.json();
+};
 
 
 export const createTask = async (title: string, description: string) => {
-    const response = await fetch(API_URL, {
+    const response = await fetch(API_URL + "/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -31,10 +28,14 @@ export const createTask = async (title: string, description: string) => {
 
 async function deleteTaskFecth(id: string) {
     const response = await fetch(API_URL + `/${id}`, {
-      method: "DELETE",
+        method: "DELETE",
     });
-    const data = await response.json();
-    return data;
+
+    if (!response.ok) {
+        throw new Error("Error al borrar la tarea");
+    }
+
+    return response.json();
   }
 
 export default deleteTaskFecth;

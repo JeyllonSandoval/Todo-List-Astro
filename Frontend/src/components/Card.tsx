@@ -25,12 +25,14 @@ export default function Card() {
   }
 
   useEffect(() => {
-
     fetchTasks()
-    .then((tasks) => {
-      setTasks(tasks);
-    });
-  }, []);
+      .then((tasks) => {
+        setTasks(tasks);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setTasks]);
 
 return (
 <section className="flex flex-col gap-3 my-4">
@@ -45,7 +47,7 @@ return (
           <div className="flex flex-col gap-2 justify-center">
             <button onClick={()=>{deleteTask(task._id)}}
             className="rounded-lg bg-green-700 p-1">
-              Complete
+              Completed
             </button>
             <button onClick={()=>{updateTask(task)}}
               className="rounded-lg bg-blue-700 p-1">

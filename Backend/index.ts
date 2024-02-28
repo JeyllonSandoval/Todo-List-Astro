@@ -10,7 +10,13 @@ const PORT = process.env.PORT || 8322;
 favicon();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://astro-todo-list-8322.vercel.app", "http://localhost:4321"],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type'],
+    }
+));
 
 app.use('/', taskRouter);
 
