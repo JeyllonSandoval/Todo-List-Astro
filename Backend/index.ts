@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8322;
 favicon();
 
 app.use(express.json());
+app.disable('x-powered-by');
 app.use(cors());
 
 app.use('/', taskRouter);
