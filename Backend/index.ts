@@ -10,13 +10,7 @@ const PORT = process.env.PORT || 8322;
 favicon();
 
 app.use(express.json());
-app.use(cors(
-    {
-        origin: [process.env.FRONTEND_URL, "http://localhost:4321", "*"],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type'],
-    }
-));
+app.use(cors());
 
 app.use('/', taskRouter);
 
