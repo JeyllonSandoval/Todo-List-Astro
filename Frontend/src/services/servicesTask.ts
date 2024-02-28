@@ -37,7 +37,6 @@ async function deleteTaskFecth(id: string) {
 
     return response.json();
   }
-
 export default deleteTaskFecth;
 
 export const updateTask = async (task: Task) => {
