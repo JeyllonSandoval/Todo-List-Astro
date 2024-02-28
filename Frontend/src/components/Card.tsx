@@ -36,7 +36,7 @@ return (
 <section className="flex flex-col gap-3 my-4">
   {
     tasks.map((task) => (
-      <article className="flex justify-center items-start">
+      <article key={task._id} className="flex justify-center items-start">
         <div className="flex gap-1 justify-between p-2 list-none bg-slate-900 rounded-lg text-white border-2 border-slate-500 w-1/2 max-sm:w-72">
           <div className="flex flex-col">
             <h2 className="text-xl">{task.title}</h2>
