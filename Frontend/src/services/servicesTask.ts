@@ -1,5 +1,6 @@
 import { API_URL } from '@/services/API';
 import type { Task } from '@/types/Task';
+import { ContentSchemaContainsSlugError } from 'node_modules/astro/dist/core/errors/errors-data';
 
 export const fetchTasks = async () => {
     const response = await fetch(API_URL);
@@ -27,10 +28,10 @@ export const createTask = async (title: string, description: string) => {
 };
 
 async function deleteTaskFecth(id: string) {
-    const response = await fetch(API_URL + `/${id}`, {
+    const response = await fetch(API_URL + `${id}`, {
         method: "DELETE",
     });
-
+    console.log(response);
     if (!response.ok) {
         throw new Error("Error al borrar la tarea");
     }
