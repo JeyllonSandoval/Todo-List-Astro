@@ -28,7 +28,7 @@ export const createTask = async (title: string, description: string) => {
 };
 
 async function deleteTaskFecth(id: string) {
-    const response = await fetch(API_URL + `${id}`, {
+    const response = await fetch(API_URL + `/${id}`, {
         method: "DELETE",
     });
     console.log(response);
