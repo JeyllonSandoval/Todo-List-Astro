@@ -1,13 +1,10 @@
 import express from 'express';
 import {connectDB} from './db.js';
 import taskRouter from './routes/task.routes.js';
-import { favicon } from './middlewares/favicon.js';
 import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 8322;
-
-favicon();
 
 app.use(express.json());
 app.disable('x-powered-by');
