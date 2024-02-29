@@ -67,3 +67,4 @@ export const removeAllTasksFetch = async () => {
 
     return response.json();
 };
+
