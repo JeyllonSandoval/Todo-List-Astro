@@ -6,11 +6,11 @@ export const createTask = async(req: Request, res: Response) => {
     console.log(req.body);
     if (!req.body.title) {
         console.log("Task title can not be empty");
-        return res.status(400).send({msg: 'Task title can not be empty'});
+        return res.status(400).send('Task title can not be empty');
     }
     if (!req.body.description) {
         console.log("Task description can not be empty");
-        return res.status(400).send({msg: 'Task description can not be empty'});
+        return res.status(400).send('Task description can not be empty');
     }
     const task = new taskSchema(req.body);
     await task.save();
@@ -34,7 +34,7 @@ export const getTasks = (req: Request, res: Response) => {
 export const updateTask = (req: Request, res: Response) => {
     res.header('Access-Control-Allow-Origin', '*');
     taskSchema.findByIdAndUpdate(req.params.id, req.body).then(() => {
-        res.json({msg: 'Task updated!'});
+        res.json('Task updated!');
     });
 };
 
@@ -51,7 +51,7 @@ export const deleteTask = async (req: Request, res: Response) => {
 export const deleteTasks = (req: Request, res: Response) => {
     res.header('Access-Control-Allow-Origin', '*');
     taskSchema.deleteMany().then(() => {
-        res.json({msg: 'All tasks deleted!'});
+        res.json('All tasks deleted!');
     });
 };
 

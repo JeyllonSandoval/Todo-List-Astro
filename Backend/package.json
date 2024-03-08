@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "bun --watch index.ts",
+    "dev": "bun --watch src/index.ts",
     "start": "bun index.js"
   },
   "name": "backend-todolist",
