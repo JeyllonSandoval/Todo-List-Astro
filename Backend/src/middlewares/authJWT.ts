@@ -31,7 +31,6 @@ export const verifyModerator = async (req: any, res: Response, next: NextFunctio
     const roles = await Role.find({_id: {$in: user.roles}});
     for (let i = 0; i < roles.length; i++) {
         if (roles[i].name === 'moderator') {
-            console.log('moderator');
             next();
             return;
         }
@@ -47,7 +46,6 @@ export const verifyAdmin = async (req: any, res: Response, next: NextFunction) =
     const roles = await Role.find({_id: {$in: user.roles}});
     for (let i = 0; i < roles.length; i++) {
         if (roles[i].name === 'admin') {
-            console.log('admin');
             next();
             return;
         }
